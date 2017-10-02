@@ -1,0 +1,13 @@
+{
+    "name": "makoru-hikage/mantrain",
+    "description": "A framework-agnostic object middleware.",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "makoru-hikage",
+            "email": "kurt.ma.coll@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {}
+}
