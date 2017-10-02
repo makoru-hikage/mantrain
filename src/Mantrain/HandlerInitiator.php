@@ -51,7 +51,7 @@ class HandlerInitiator {
 		return $this;
 	}
 
-	public function setHandlerAuxilliary(string $methodName, ...$arguments){
+	public function set(string $methodName, ...$arguments){
 	
 		$this->handlerAuxilliaries[$methodName] = $arguments;
 
