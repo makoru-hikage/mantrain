@@ -52,4 +52,4 @@ The method chain goes in like this:
 - 4.0. Should this `HandlerInitiator` be given a non-zero `$code`, it'll call all the methods, but all of them will just return `$this` and do nothing else. Otherwise, the rest will continue working well as long as `HandlerInitiator`'s 2nd argument is `0`.
 - 5.0. When you call `getData()`, the `$data` that was supplied with a non-zero `$code` will be returned despite the long chain.
 
-The example chain portrays a situation where an HTTP REQUEST is received and the bodys is parsed. The input is then validated, then authorzied, then used to insert a database record.
+The example chain portrays a situation where an HTTP REQUEST is received and the body is parsed. The input is then validated, then authorized, then used to insert a database record.
