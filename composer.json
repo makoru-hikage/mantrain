@@ -1,6 +1,6 @@
 {
     "name": "makoru-hikage/mantrain",
-    "description": "A framework-agnostic object middleware.",
+    "description": "A novel implementation of a middleware for associative arrays with the extensive use of method chains.",
     "license": "MIT",
     "authors": [
         {
@@ -9,5 +9,12 @@
         }
     ],
     "minimum-stability": "dev",
-    "require": {}
+    "require": {
+        "php": ">=7.0.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "DeltaX\\Mantrain\\": "src/Mantrain"
+        }
+    }
 }

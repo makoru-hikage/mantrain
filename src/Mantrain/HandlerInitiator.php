@@ -68,6 +68,12 @@ class HandlerInitiator {
 	 * @param mixed $arguments 
 	 */
 	public function setHandler($handler, ...$arguments){
+		
+		// If one of the handlers had sent a non-zero code
+		//before this.
+		if ( $this->code != 0 ){
+			return $this;
+		}
 
 		switch ($handler) {
 
@@ -198,6 +204,16 @@ class HandlerInitiator {
 		}
 
 		return $this->handler->run();
+	}
+	
+	public function getData(){
+
+		return $this->data();
+	}
+	
+	public function getCode(){
+
+		return $this->code();
 	}
 
 }
