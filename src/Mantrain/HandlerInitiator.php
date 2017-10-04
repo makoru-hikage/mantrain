@@ -126,5 +126,15 @@ class HandlerInitiator {
 
 		return $this->handler->run();
 	}
+	
+	public function getData(){
+
+		return $this->data();
+	}
+	
+	public function getCode(){
+
+		return $this->code();
+	}
 
 }
