@@ -25,6 +25,12 @@ class HandlerInitiator {
 	}
 
 	public function setHandler($handler, ...$arguments){
+		
+		// If one of the handlers had sent a non-zero code
+		//before this.
+		if ( $this->code != 0 ){
+			return $this;
+		}
 
 		switch ($handler) {
 
