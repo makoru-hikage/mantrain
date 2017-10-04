@@ -6,12 +6,33 @@ use DeltaX\Mantrain\HandlerInitiator;
 
 abstract class Handler {
 
+	/**
+	 * The data to be used by this through `process`
+	 * 
+	 * @var array
+	 */
 	protected $inputData;
 
+	/**
+	 * A variable to hold whatever results from `process`
+	 * 
+	 * @var array
+	 */
 	protected $outputData;
 
+	/**
+	 * Something to be set through `process`
+	 * 
+	 * @var int
+	 */
 	protected $code;
 
+	/**
+	 * A setter for input data
+	 * 
+	 * @param array $input
+	 * @return array self
+	 */
 	public function setInputData(array $input){
 
 		$this->inputData = $input;
@@ -19,6 +40,10 @@ abstract class Handler {
 		return $this;
 	}
 
+	/**
+	 * Do the `process` and move on to the next link/Handler
+	 * @return [type] [description]
+	 */
 	public function run(){
 
 		$this->process();
@@ -29,6 +54,12 @@ abstract class Handler {
 		return new HandlerInitiator($data, $code);		
 	}
 
+	/**
+	 * Whatever the descendants do.
+	 * This determines the $code and $outputData
+	 * 
+	 * @return self
+	 */
 	abstract protected function process();
 
 }
