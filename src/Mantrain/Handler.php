@@ -11,14 +11,14 @@ abstract class Handler {
 	 * 
 	 * @var array
 	 */
-	protected $inputData;
+	protected $inputData = [];
 
 	/**
 	 * A variable to hold whatever results from `process`
 	 * 
 	 * @var array
 	 */
-	protected $outputData;
+	protected $outputData = [];
 
 	/**
 	 * Something to be set through `process`
@@ -49,7 +49,7 @@ abstract class Handler {
 		$this->process();
 
 		$data = $this->outputData;
-		$code = $this->code;
+		$code = $this->code ? $this->code : 0;
 
 		return new HandlerInitiator($data, $code);		
 	}
