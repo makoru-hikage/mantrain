@@ -14,7 +14,11 @@
     },
     "autoload": {
         "psr-4": {
-            "DeltaX\\Mantrain\\": "src/Mantrain"
+            "DeltaX\\Mantrain\\": "src/Mantrain",
+            "TestDummies\\": "tests/"
         }
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^6.3"
     }
 }
