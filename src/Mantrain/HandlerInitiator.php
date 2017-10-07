@@ -11,7 +11,7 @@ class HandlerInitiator {
 	 * 
 	 * @var array
 	 */
-	protected $data;
+	protected $data = [];
 
 	/**
 	 * Some sort of a flag whether to continue allowing
@@ -38,7 +38,7 @@ class HandlerInitiator {
 	 * The Handler's arguments if it is initiated
 	 * @var array
 	 */
-	protected $handlerArguments;
+	protected $handlerArguments = [];
 
 	/**
 	 * An array where the keys are method names and 
@@ -47,7 +47,7 @@ class HandlerInitiator {
 	 * 
 	 * @var array
 	 */
-	protected $handlerAuxilliaries;
+	protected $handlerAuxilliaries = [];
 
 	/**
 	 * Initiate the initiator
@@ -55,7 +55,7 @@ class HandlerInitiator {
 	 * @param array       $data
 	 * @param int|integer $code
 	 */
-	public function __construct($data = [], int $code = 0){
+	public function __construct(array $data = [], int $code = 0){
 		
 		$this->data = $data;
 		$this->code = $code;
@@ -183,7 +183,7 @@ class HandlerInitiator {
 
 		foreach ($this->handlerAuxilliaries as $handlerMethod => $arguments) {
 
-			$handler = $handler->{handlerMethod}(...$arguments);
+			$handler = $handler->{$handlerMethod}(...$arguments);
 
 		}
 
@@ -208,12 +208,12 @@ class HandlerInitiator {
 	
 	public function getData(){
 
-		return $this->data();
+		return $this->data;
 	}
 	
 	public function getCode(){
 
-		return $this->code();
+		return $this->code;
 	}
 
 }
