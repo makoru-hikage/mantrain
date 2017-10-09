@@ -74,5 +74,33 @@ class HandlerChainTest extends TestCase{
 
 	}
 
+	public function testDislinked(){
+
+		$input = [ "name" => "cmoran", "email" => "cmoran@gmail.com" ];
+		
+		$mantrain = new HandlerInitiator($input);
+		$user = "brando";
+		$action = "contact.delete";
+
+		$validation = $mantrain
+			->setHandler(DummyValidatorHandler::class)
+			->run();
+
+		$authorization = $validation
+			->setHandler(DummyAuthHandler::class)
+			->setHandlerArguments($user, $action)
+			->set('setAdapter', new DummyAuthAdapter)
+			->run();
+
+
+		$final_step = $authorization
+			->setHandler(DummyRandomHandler::class)
+			->run();
+
+		$this->assertEquals(401, $final_step->getCode());
+		$this->assertEquals(["message" => "Not allowed"], $final_step->getData());
+
+	}
+
 
 }
