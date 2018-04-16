@@ -88,6 +88,10 @@ class HandlerInitiator {
 				$this->handlerClass = $handler;
 				$this->handlerArguments = $arguments;
 				break;
+				
+			default:
+				$this->code = 500;
+				throw new Exception("A non-Handler was used");
 		}
 
 		return $this;
