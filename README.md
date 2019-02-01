@@ -3,7 +3,7 @@
 A novel implementation of a middleware for associative arrays with the extensive use of method chains.
 
 ## Usage Summary
-```
+```php
 <?php
 
 ...
