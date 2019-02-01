@@ -42,7 +42,7 @@ abstract class Handler {
 
 	/**
 	 * Do the `process` and move on to the next link/Handler
-	 * @return [type] [description]
+	 * @return \DeltaX\Mantrain\HandlerInitiator
 	 */
 	public function run(){
 
@@ -55,7 +55,8 @@ abstract class Handler {
 	}
 
 	/**
-	 * Whatever the descendants do.
+	 * Whatever the descendants do. 
+	 * Might or might not mutate the $inputData.
 	 * This determines the $code and $outputData
 	 * 
 	 * @return self
