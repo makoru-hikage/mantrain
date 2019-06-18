@@ -31,7 +31,7 @@ abstract class Handler {
 	 * A setter for input data
 	 * 
 	 * @param array $input
-	 * @return array self
+	 * @return self
 	 */
 	public function setInputData(array $input){
 
