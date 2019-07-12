@@ -15,14 +15,15 @@ abstract class Module {
 	/**
 	 * Some sort of a flag whether to continue allowing
 	 * the data to be modified or not.
+     * You can use HTTP codes for this
 	 * 
 	 * @var int
 	 */
 	protected $code = 0;
 
 	/**
-	 * Initiate the initiator.
-     * It must always have a data to process
+     * It must always have a data to process,
+     * or atleast, an empty array
 	 * 
 	 * @param array     $data
 	 */
@@ -31,7 +32,10 @@ abstract class Module {
 	}
 
 	/**
-	 * @param string $handler
+     * Returns self with no argument is supplied
+     * or when its $code is not 0.
+     * 
+	 * @param string $module_class
      * @param array $args
 	 * @return self|\DeltaX\Mantrain\Module
 	 */
@@ -49,7 +53,7 @@ abstract class Module {
     /**
 	 * Whatever the descendants do. 
 	 * Might or might not mutate the $inputData.
-	 * This determines the $code and $outputData
+	 * This determines the $code and $data
 	 * 
 	 * @return self
 	 */
