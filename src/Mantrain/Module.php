@@ -38,8 +38,6 @@ abstract class Module {
     public function run(string $module_class = null, array $args = []){
  
         $this->process();
-        $yes = get_class($this);
-        echo "\n$yes --- $this->code";   
 
         if ( $this->code === 0 && !is_null ($module_class)){
             return new $module_class($this->data, ...$args);
