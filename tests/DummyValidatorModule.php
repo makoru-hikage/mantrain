@@ -2,15 +2,15 @@
 
 namespace TestDummies;
 
-use DeltaX\Mantrain\Handler;
+use DeltaX\Mantrain\Module;
 
-class DummyValidatorHandler extends Handler {
+class DummyValidatorModule extends Module {
 
-	public function process(){
+	protected function process(){
 
 		$outputData = [];
-		$name = $this->inputData['name'];
-		$email = $this->inputData['email'];
+		$name = $this->data['name'];
+		$email = $this->data['email'];
 
 		if ( empty($name) ) {
 			$outputData['name'] = "Name must not be empty";
@@ -22,8 +22,7 @@ class DummyValidatorHandler extends Handler {
 
 		if ( ! empty($outputData) ) {
 			$this->code = 400;
-			$this->outputData = ["message" => $outputData];
+			$this->data = ["message" => $outputData];
 		}
-
 	}
 }

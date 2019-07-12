@@ -2,16 +2,17 @@
 
 namespace TestDummies;
 
-use DeltaX\Mantrain\Handler;
+use DeltaX\Mantrain\Module;
 
-class DummyAuthHandler extends Handler {
+class DummyAuthModule extends Module {
 
 	protected $username;
 	protected $adapter;
 	protected $permission;
 
-	public function __construct($username, $permission){
+	public function __construct($data, $username, $permission){
 
+		parent::__construct($data);
 		$this->username = $username;
 		$this->permission = $permission;
 	}
@@ -23,13 +24,13 @@ class DummyAuthHandler extends Handler {
 		return $this;
 	}
 
-	public function process(){
+	protected function process(){
 
 		$allowed = $this->adapter->isAllowed($this->username, $this->permission);
 
 		if ( ! $allowed ) {
 			$this->code = 401;
-			$this->outputData = ["message" => "Not allowed"];
+			$this->data = ["message" => "Not allowed"];
 		}
 
 	}
