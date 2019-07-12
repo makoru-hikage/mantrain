@@ -3,19 +3,19 @@
 namespace TestDummies;
 
 class DummyAuthAdapter {
-	
-	protected $fakePermissionTable = [
-		"brando" => ["contact.create", "contact.read"],
-		"admin_boi" => ["contact.create", "contact.read", "contact.delete"],
-	];
 
-	public function isAllowed($user, $permission){
+    protected $fakePermissionTable = [
+        "brando" => ["contact.create", "contact.read"],
+        "admin_boi" => ["contact.create", "contact.read", "contact.delete"],
+    ];
 
-		if ( ! array_key_exists($user, $this->fakePermissionTable) ) {
-			return false;
-		}
+    public function isAllowed($user, $permission){
 
-		return in_array($permission, $this->fakePermissionTable[$user]);
-	}
+        if ( ! array_key_exists($user, $this->fakePermissionTable) ) {
+            return false;
+        }
+
+        return in_array($permission, $this->fakePermissionTable[$user]);
+    }
 
 }
