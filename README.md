@@ -28,7 +28,6 @@ $statusCode = $mantrain->getCode();
 // run() will need a class's name and it's additional constructor arguments if applicable
 
 // All the supplied classes are descendants of Module class.
-// Every run() method returns a new HandlerInitiator object;
 
 ```
 The method chain goes in like this:
