@@ -25,14 +25,14 @@ $responseBody = $mantrain->getData();
 $statusCode = $mantrain->getCode();
   
 
-// run() will need a class's name and it's additional constructor arguments if applicable
+// run() will need a class's name and its additional constructor arguments if applicable
 
 // All the supplied classes are descendants of Module class.
 
 ```
 The method chain goes in like this:
 - 1.0. `$mantrain`'s first class is initiated, it is a child of `\DeltaX\Mantrain\Module`
-- 2.0. `$mantrain` runs it's own `process()` method then initiates `\SampleLib\Authorization`, also a `Module`
+- 2.0. `$mantrain` runs its own `process()` method then initiates `\SampleLib\Authorization`, also a `Module`
 - 3.0. `$mantrain` is now running `\SampleLib\Authorization`'s `process()` then initiates `\SampleLib\PostCreation` which is also a `Module`
 - 4.0. `$mantrain` is now running `\SampleLib\PostCreation`'s `process()` 
 - 5.0. You may now extract the final `data` and `code`
